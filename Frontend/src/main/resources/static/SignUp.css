@@ -1,0 +1,55 @@
+body{
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #092df1);
+    font-size: 24px;
+}
+#logo{
+    margin-left: 23.6cm;
+}
+#brandName{
+    font-size: 2.3cm;
+    margin-left: 12cm;
+    margin-top: 0.7cm;
+
+}
+.SignUpArea{
+    position: absolute;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #092df1, #d9d0cf);
+    border: 5px solid;
+    padding-top: 15px;
+    top:300px;
+    left:800px;
+    height: 8cm;
+    width: 8cm;
+}
+.inner-SingUpArea{
+
+margin-left: 1.5cm;
+
+}#BackButton,#SignupButton{
+     width: 2cm;
+     margin-right: 18px;
+     margin-top: 5px;
+     border-style: solid;
+     border-radius: 10px;
+     font-weight: bold;
+
+
+ }
+#PasswordText,#UsernameText,#RePasswordText{
+    font-size: 20px;
+    font-weight: bold;
+    font-family:"Lucida Sans Unicode";
+    top:-130px;
+}
+#passwordField,#usernameField,#RepasswordField{
+    border-style: solid;
+    height: 20px;
+    border-color: black;
+    border: 3px solid;
+    border-radius: 4px;
+    margin-top: -44cm;
+
+}

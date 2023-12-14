@@ -1,16 +1,25 @@
 body{
-    background-image: url("Untitled.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+     height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #092df1);
+    font-size: 24px;
+
+
+}
+#logo{
+    margin-left: 23.6cm;
+}
+#brandName{
+    font-size: 2.3cm;
+    margin-left: 12cm;
+    margin-top: 0.7cm;
 
 }
 
-
 .LoginArea{
     position: absolute;
+    align-items: center;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, #092df1, #d9d0cf);
     border: 5px solid;
     padding-top: 15px;
     top:300px;
@@ -21,7 +30,7 @@ body{
 .inner-LoginArea{
     position: initial;
     margin-left: 60px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 #LoginButton,#SignupButton{
     width: 2cm;
@@ -37,6 +46,7 @@ body{
     font-size: 20px;
     font-weight: bold;
     font-family:"Lucida Sans Unicode";
+    top:-130px;
 }
 #passwordField,#usernameField{
     border-style: solid;

@@ -6,12 +6,15 @@
     <link rel="stylesheet" type="text/css" href="Login.css">
 </head>
 <body>
+<img id="logo" src="LOGO.png">
+<H5 id="brandName">AVIELENT E-COMMERCE</H5>
 <div class="LoginArea">
     <div class="inner-LoginArea">
         <br><label id="UsernameText">Username</label></br>
-        <br><input id="usernameField"></br>
+        <input id="usernameField">
         <br> <label id="PasswordText">Password</label> </br>
-        <br><input type="password" id="passwordField"></br>
+        <input type="password" id="passwordField">
+
         <button id="LoginButton">Login</button>
         <button id="SignupButton">SignUp</button>
         </div>
@@ -19,4 +22,13 @@
 
 </div>
 </body>
+
+
+<script id="GoSignUpPage-Script">
+function GoSignUpPage(){
+window.location.href="SignUpPage.html"
+}
+document.getElementById("SignupButton").addEventListener("click",GoSignUpPage)
+
+</script>
 </html>

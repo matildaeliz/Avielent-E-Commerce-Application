@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avielent E-Commerce | Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="SignUp.css">
+</head>
+<body>
+<img id="logo" src="LOGO.png">
+<H5 id="brandName">AVIELENT E-COMMERCE</H5>
+<div class="SignUpArea">
+    <div class="inner-SingUpArea">
+        <br><label id="UsernameText">Username</label></br>
+        <input id="usernameField">
+        <br> <label id="PasswordText">Password</label> </br>
+        <input type="password" id="passwordField">
+        <br> <label id="RePasswordText">Re-Password</label> </br>
+        <input type="password" id="RepasswordField">
+        <button id="SignupButton">SignUp</button>
+        <button id="BackButton">Back</button>
+    </div>
+</div>
+
+</div>
+</body>
+
+<script >
+    function GoBackToLoginPage(){
+      window.location.href ="index.html";
+    }
+    document.getElementById("BackButton").addEventListener("click",GoBackToLoginPage)
+
+</script>
+</html>
