@@ -5,7 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Management</title>
   <style>
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
 
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    form {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    button {
+      background-color: deepskyblue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: deepskyblue;
+    }
+
+    /* Add some spacing between buttons for better readability */
+    button + button {
+      margin-top: 10px;
+    }
+
+    /* Style for error messages (modify as needed) */
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+
+    /* Arrange password-related elements next to username and email */
+    .password-section {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .password-section label,
+    .password-section input {
+      width: 100%; /* Adjust as needed */
+    }
+
+    /* Style for balance-related elements */
+    .balance-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .balance-section label {
+      width: 48%; /* Adjust as needed */
+    }
+
+    .balance-section input {
+      width: 48%; /* Adjust as needed */
+    }
+
+    .balance-section div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
