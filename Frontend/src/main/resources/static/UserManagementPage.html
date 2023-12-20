@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <style>
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    form {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    button {
+      background-color: deepskyblue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: deepskyblue;
+    }
+
+
+    button + button {
+      margin-top: 10px;
+    }
+
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+
+
+    .password-section {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .password-section label,
+    .password-section input {
+      width: 100%;
+    }
+
+
+    .balance-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .balance-section label {
+      width: 48%;
+    }
+
+    .balance-section input {
+      width: 48%;
+    }
+
+    .balance-section div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<h2>User Management</h2>
+<button id="goBackButton" onclick="goBack()">Go Back</button>
+<form id="userForm">
+  <div class="username-section">
+    <label for="username">Username:</label>
+    <div>
+      <input type="text" id="username" name="username" required>
+      <button type="button" onclick="changeUsername()">Change Username</button>
+    </div>
+  </div>
+  <div class="e-mail-section">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <button type="button" onclick="changeEmail()">Change Email</button>
+  </div>
+
+  <div class="password-section">
+    <label for="password">New Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="button" onclick="changePassword()">Change Password</button>
+  </div>
+
+  <div class="balance-section">
+    <label for="balance">Balance: 900</label>
+    <div>
+      <input type="balance" id="balance" name="balance" required>
+      <button type="button" onclick="addBalance()">Add Balance</button>
+    </div>
+  </div>
+
+</form>
+
+<table id="userTable">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Balance</th>
+    <th>Products</th>
+  </tr>
+
+</table>
+
+<script>
+  function changeUsername() {
+
+  }
+
+  function addBalance() {
+
+  }
+
+  function changePassword() {
+
+  }
+  function changeEmail(){
+
+  }
+</script>
+
+</body>
+</html>
