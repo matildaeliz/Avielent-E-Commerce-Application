@@ -31,4 +31,35 @@ window.location.href="SignUpPage.html"
 document.getElementById("SignupButton").addEventListener("click",GoSignUpPage)
 
 </script>
+
+<script id="Login-Script">
+    function Login(){
+      var username = document.getElementById("usernameField").value
+      var password = document.getElementById("passwordField").value
+
+        var userResponse = {
+            username: username,
+            password: password
+        };
+      var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:9000/user/login");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+
+      xhr.onreadystatechange = function (){
+          if(xhr.readyState === 4){
+              if(xhr.status === 200){
+                  var responsText = xhr.responseText;
+                  console.log("Answer: ", responsText)
+                  window.location.href="MainPage.html"
+              }else{
+                  console.log("Answer: ", "Wrong Username or Password")
+                  alert("Wrong Username or Password");
+              }
+          }
+      }
+      xhr.send(JSON.stringify(userResponse));
+    }
+document.getElementById("LoginButton").addEventListener("click",Login)
+</script>
 </html>
