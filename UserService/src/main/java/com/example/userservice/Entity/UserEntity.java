@@ -13,32 +13,18 @@ public class UserEntity {
     @Column
     private String password;
     @Column
-    private double balance;
+    private String email;
+    @Column
+    private int balance;
 
-    public UserEntity(String username,String password){
+    public UserEntity(String username,String password,String email){
         this.username=username;
         this.password=password;
+        this.email=email;
+        this.balance = 0;
     }
     public UserEntity(){
 
-    }
-    public String getUsername(){
-        return username;
-    }
-    public String getPassword(){
-        return password;
-    }
-    public void setPassword(String password){
-        this.password=password;
-    }
-    public int getId(){
-        return id;
-    }
-    public int getBalance(){
-        return balance;
-    }
-    public void setBalance(double balance){
-        this.balance=balance;
     }
 
 }

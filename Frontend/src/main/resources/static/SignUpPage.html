@@ -12,6 +12,8 @@
     <div class="inner-SingUpArea">
         <br><label id="UsernameText">Username</label></br>
         <input id="usernameField">
+        <br><label id="emailText">Email</label></br>
+        <input id="emailField">
         <br> <label id="PasswordText">Password</label> </br>
         <input type="password" id="passwordField">
         <br> <label id="RePasswordText">Re-Password</label> </br>
@@ -35,13 +37,14 @@
         var username = document.getElementById("usernameField").value;
         var password = document.getElementById("passwordField").value;
         var passwordagain = document.getElementById("repasswordField").value;
-
+        var email = document.getElementById("emailField").value;
         if (password != passwordagain) {
             alert("Passwords are different");
         } else {
             var userResponse = {
                 username: username,
-                password: password
+                password: password,
+                email: email
             };
 
             var xhr = new XMLHttpRequest();

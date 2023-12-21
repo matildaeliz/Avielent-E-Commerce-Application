@@ -1,0 +1,106 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+form {
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    background-color: deepskyblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: deepskyblue;
+}
+
+
+button + button {
+    margin-top: 10px;
+}
+
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+
+.password-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.password-section label,
+.password-section input {
+    width: 100%;
+}
+.balance-section,.password-section,.username-section,.e-mail-section,#goBackButton{
+    width: 10cm;
+    margin-left: 18cm;
+}
+#goBackButton{
+    width: 3cm;
+    margin-left: 21.5cm;
+}
+.balance-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.balance-section label {
+    width: 48%;
+}
+
+.balance-section input {
+    width: 48%;
+}
+
+.balance-section div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

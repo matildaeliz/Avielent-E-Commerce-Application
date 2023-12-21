@@ -4,167 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Management</title>
-  <style>
-body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    h2 {
-      color: #333;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-
-    th, td {
-      padding: 12px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    form {
-      max-width: 400px;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input, button {
-      padding: 10px;
-      margin-bottom: 10px;
-      width: 100%;
-    }
-
-    button {
-      background-color: deepskyblue;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: deepskyblue;
-    }
-
-
-    button + button {
-      margin-top: 10px;
-    }
-
-
-    .error-message {
-      color: red;
-      margin-top: 5px;
-    }
-
-
-    .password-section {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 10px;
-    }
-
-    .password-section label,
-    .password-section input {
-      width: 100%;
-    }
-
-
-    .balance-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .balance-section label {
-      width: 48%;
-    }
-
-    .balance-section input {
-      width: 48%;
-    }
-
-    .balance-section div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="UserManagement.css">
 </head>
 <body>
 
 <h2>User Management</h2>
-<button id="goBackButton" onclick="goBack()">Go Back</button>
-<form id="userForm">
-  <div class="username-section">
-    <label for="username">Username:</label>
-    <div>
-      <input type="text" id="username" name="username" required>
-      <button type="button" onclick="changeUsername()">Change Username</button>
-    </div>
+<button id="goBackButton" >Go Back</button>
+
   </div>
   <div class="e-mail-section">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
-    <button type="button" onclick="changeEmail()">Change Email</button>
+    <button type="button" id="changeEmailButton">Change Email</button>
   </div>
 
   <div class="password-section">
     <label for="password">New Password:</label>
     <input type="password" id="password" name="password" required>
-    <button type="button" onclick="changePassword()">Change Password</button>
+    <button type="button" id="changepasswordButton">Change Password</button>
   </div>
 
   <div class="balance-section">
-    <label for="balance">Balance: 900</label>
+
     <div>
+      <label id ="balancetext"> no</label>
       <input type="balance" id="balance" name="balance" required>
-      <button type="button" onclick="addBalance()">Add Balance</button>
+      <button type="button"id="updateBalanceButton" >Add Balance</button>
     </div>
   </div>
 
-</form>
-
-<table id="userTable">
-  <tr>
-    <th>Username</th>
-    <th>Email</th>
-    <th>Balance</th>
-    <th>Products</th>
-  </tr>
-
-</table>
 
 <script>
-  function changeUsername() {
+document.addEventListener('DOMContentLoaded', function (){
 
-  }
+  var balance = new XMLHttpRequest();
+  balance.open("GET", "http://localhost:9000/reservation/getbalance")
+  balance.onreadystatechange = function () {
+
+    if (pnr.status === 200) {
+      var responseText = balance.responseText;
+      document.getElementById("BalanceText").textContent = "Balance: " +responseText;
+
+    }
+  };
+  balance.send()
+
+})
+</script>
+
+<script>
+
 
   function addBalance() {
+     var balance = document.getElementById("balance").value
 
+    if(balance ==""){
+      alert("Box is Empty")
+    }else{
+      var userResponse = {
+        balance: balance
+      };
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:9000/user/updateBalance");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+
+      xhr.onreadystatechange = function (){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var responsText = xhr.responseText;
+            console.log("Answer: ", responsText)
+            alert("Balance Succesfully updated")
+          }else{
+            console.log("Answer: ", "")
+            alert("You cannot enter negative number");
+          }
+        }
+      }
+      xhr.send(JSON.stringify(userResponse));
+    }
   }
 
   function changePassword() {
+     var newpassword = document.getElementById("password").value;
 
+
+    if(newpassword == ""){
+      alert("Box is Empty")
+    }else{
+      var userResponse = {
+        password: newpassword
+      };
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:9000/user/changePassword");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+
+      xhr.onreadystatechange = function (){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var responsText = xhr.responseText;
+            console.log("Answer: ", responsText)
+            alert("Password Succesfully updated")
+          }else{
+            console.log("Answer: ", "")
+            alert("You cannot enter negative number");
+          }
+        }
+      }
+      xhr.send(JSON.stringify(userResponse));
+    }
   }
   function changeEmail(){
+    var newemail = document.getElementById("email").value;
 
+
+    if(newemail == ""){
+      alert("Box is Empty")
+    }else{
+      var userResponse = {
+        email: newemail
+      };
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:9000/user/changeEmail");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+
+      xhr.onreadystatechange = function (){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var responsText = xhr.responseText;
+            console.log("Answer: ", responsText)
+            alert("Email Succesfully updated")
+          }else{
+            alert("You cannot enter number")
+
+          }
+        }
+      }
+      xhr.send(JSON.stringify(userResponse));
+    }
   }
+
+  function gobacktomainpage(){
+    window.location.href="MainPage.html"
+  }
+
+  document.getElementById("changepasswordButton").addEventListener("click", changePassword);
+  document.getElementById("updateBalanceButton").addEventListener("click", addBalance);
+  document.getElementById("changeEmailButton").addEventListener("click", changeEmail);
+  document.getElementById("goBackButton").addEventListener("click", gobacktomainpage);
 </script>
 
 </body>

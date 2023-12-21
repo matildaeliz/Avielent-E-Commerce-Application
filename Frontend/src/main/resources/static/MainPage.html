@@ -5,6 +5,15 @@
     <title>Avielent E-Commerce | Main Page</title>
 </head>
 <body>
+<img id="logo" src="LOGO.png">
 
+<button type="button" id="GUMP">User Management Page</button>
 </body>
+
+<script>
+    function GoUserManagementPage (){
+        window.location.href="UserManagementPage.html"
+    }
+    document.getElementById("GUMP").addEventListener("click",GoUserManagementPage)
+</script>
 </html>

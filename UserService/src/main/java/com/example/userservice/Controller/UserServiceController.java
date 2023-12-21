@@ -22,5 +22,18 @@ public class UserServiceController {
          public ResponseEntity authorization(@RequestBody UserResponse userResponse){
              return  userService.authorization(userResponse.getUsername(),userResponse.getPassword());
          }
+       @PostMapping("/changePassword")
+    public ResponseEntity changePassword(@RequestBody UserResponse userResponse){
+        return  userService.changePassword(userResponse.getPassword());
+    }
+
+    @PostMapping("/changeEmail")
+    public ResponseEntity changeEmail(@RequestBody UserResponse userResponse){
+        return  userService.changeEmail(userResponse.getEmail());
+    }
+    @PostMapping("/updateBalance")
+    public ResponseEntity updateBalance(@RequestBody UserResponse userResponse){
+        return  userService.updateBalance(userResponse.getBalance());
+    }
 
 }
