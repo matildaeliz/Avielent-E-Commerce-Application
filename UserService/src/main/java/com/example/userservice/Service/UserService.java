@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.awt.*;
+
 
 @Service
 @CrossOrigin(origins = "http://localhost:8080")
@@ -55,6 +57,10 @@ public class UserService implements LoginInterface{
              userRepository.updateBalance(this.username,balance);
              return ResponseEntity.ok("Balance Updated");
          }
+    }
+
+    public int getBalance(){
+         return userRepository.getBalance(this.username);
     }
 
     public  boolean findUser(String username){

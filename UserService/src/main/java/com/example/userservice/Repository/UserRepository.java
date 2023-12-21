@@ -32,4 +32,7 @@ public interface UserRepository extends JpaRepository<UserEntity,String> {
     @Modifying
     @Query("UPDATE UserEntity user SET user.balance =:balance WHERE user.username=:username")
     void updateBalance(@Param("username")String username, @Param("balance")int balance);
+
+    @Query("SELECT user.balance FROM UserEntity user WHERE user.username =:username")
+    int getBalance(@Param("username")String username);
 }

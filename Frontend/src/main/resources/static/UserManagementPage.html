@@ -34,27 +34,42 @@
   </div>
 
 
+
 <script>
-document.addEventListener('DOMContentLoaded', function (){
+  document.addEventListener('DOMContentLoaded', function() {
 
-  var balance = new XMLHttpRequest();
-  balance.open("GET", "http://localhost:9000/reservation/getbalance")
-  balance.onreadystatechange = function () {
+    var balance = new XMLHttpRequest();
+    balance.open("GET", "http://localhost:9000/user/getBalance")
+    balance.onreadystatechange = function () {
 
-    if (pnr.status === 200) {
-      var responseText = balance.responseText;
-      document.getElementById("BalanceText").textContent = "Balance: " +responseText;
+      if (balance.status === 200) {
+        var responseText = balance.responseText;
+        document.getElementById("balancetext").textContent = "Balance: " +responseText;
 
-    }
-  };
-  balance.send()
+      }
+    };
+    balance.send()
 
-})
+
+
+  });
+
+
 </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-
-
   function addBalance() {
      var balance = document.getElementById("balance").value
 

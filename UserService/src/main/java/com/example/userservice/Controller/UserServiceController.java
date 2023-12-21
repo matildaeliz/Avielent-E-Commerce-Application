@@ -35,5 +35,10 @@ public class UserServiceController {
     public ResponseEntity updateBalance(@RequestBody UserResponse userResponse){
         return  userService.updateBalance(userResponse.getBalance());
     }
+    @GetMapping("/getBalance")
+    public String getBalance(){
+               return String.valueOf(userService.getBalance());
+    }
+
 
 }
