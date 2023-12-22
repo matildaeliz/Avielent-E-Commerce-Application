@@ -3,13 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Avielent E-Commerce | Main Page</title>
+    <link rel="stylesheet" type="text/css" href="MainPage.css">
 </head>
 <body>
+<img id="usericon" src="UserIcon.png">
 <img id="logo" src="LOGO.png">
+<button type="button" id = "SearchButton"> Search</button>
+<button type="button" id="GUMP">User Management</button>
 
-<button type="button" id="GUMP">User Management Page</button>
+<div>
+    <label id ="balancetext"> Balance:  </label>
+    <label id ="usernametext"> Username:  </label>
+</div>
+
+
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
 
+        var balance = new XMLHttpRequest();
+        balance.open("GET", "http://localhost:9000/user/getBalance")
+        balance.onreadystatechange = function () {
+
+            if (balance.status === 200) {
+                var responseText = balance.responseText;
+                document.getElementById("balancetext").textContent = "Balance: " +responseText;
+
+            }
+        };
+        balance.send()
+
+        var username = new XMLHttpRequest();
+        username.open("GET", "http://localhost:9000/user/getUsername")
+        username.onreadystatechange = function () {
+
+            if (username.status === 200) {
+                var responseText = username.responseText;
+                document.getElementById("usernametext").textContent = "Username: " +responseText;
+
+            }
+        };
+        username.send()
+
+    });
+
+
+</script>
 <script>
     function GoUserManagementPage (){
         window.location.href="UserManagementPage.html"

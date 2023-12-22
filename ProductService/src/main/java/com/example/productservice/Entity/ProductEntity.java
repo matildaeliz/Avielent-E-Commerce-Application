@@ -15,11 +15,14 @@ public class ProductEntity {
     private String product_desc;
     @Column
     private double product_star;
+    @Column
+    private String productseller;
 
-    public ProductEntity(String product_name, String product_desc) {
+    public ProductEntity(String product_name, String product_desc, String productseller) {
         this.product_name = product_name;
         this.product_desc = product_desc;
         this.product_star = 0.0;
+        this.productseller = productseller;
 
     }
 

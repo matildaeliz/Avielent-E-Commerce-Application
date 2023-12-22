@@ -51,12 +51,22 @@ public class UserService implements LoginInterface{
     }
 
     public  ResponseEntity updateBalance(int balance){
-         if (balance <= 0){
-             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-         }else {
-             userRepository.updateBalance(this.username,balance);
-             return ResponseEntity.ok("Balance Updated");
+         try{
+             if (balance <= 0){
+                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+             }else {
+                 int newbalance = userRepository.getBalance(this.username) + balance;
+                 userRepository.updateBalance(this.username,newbalance);
+                 return ResponseEntity.ok("Balance Updated");
+             }
+         }catch (NumberFormatException exception){
+             return  ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
          }
+
+    }
+
+    public String getUsername(){
+         return this.username;
     }
 
     public int getBalance(){

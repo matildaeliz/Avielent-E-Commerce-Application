@@ -1,0 +1,45 @@
+
+#logo{
+    position: absolute;
+    right: 23.5cm;
+    height: 4cm;
+}
+
+#GUMP{
+    position: absolute;
+    border-style: solid;
+    top: 5cm;
+    width: 25cm;
+    right: 0cm;
+    height: 1cm;
+    border: 4px solid #283593;
+    font-size: 20px;
+}
+#SearchButton{
+    position: absolute;
+    top:5cm;
+    width: 26cm;
+    left: 0cm;
+    height: 1cm;
+    border: 4px solid #283593;
+    font-size: 20px;
+
+}
+#usericon{
+    position: absolute;
+    height: 2cm;
+    right: 2cm;
+    top: 1cm;
+}
+#balancetext{
+    position: absolute;
+    font-weight: bold;
+    right: 2.8cm;
+    top: 4cm;
+}
+#usernametext{
+    position: absolute;
+    font-weight: bold;
+    right: 2.2cm;
+    top: 3.2cm;
+}

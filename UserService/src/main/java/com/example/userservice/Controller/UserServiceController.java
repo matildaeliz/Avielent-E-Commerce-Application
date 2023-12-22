@@ -39,6 +39,10 @@ public class UserServiceController {
     public String getBalance(){
                return String.valueOf(userService.getBalance());
     }
+    @GetMapping("/getUsername")
+    public String getUsername(){
+               return userService.getUsername();
+    }
 
 
 }
