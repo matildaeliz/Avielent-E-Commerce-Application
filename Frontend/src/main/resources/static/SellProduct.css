@@ -1,0 +1,89 @@
+#outerdiv{
+    position: absolute;
+    right: 20cm;
+    top: 7cm;
+    background-color: #acb8ff;
+    height: 10cm;
+    width: 10cm;
+    border: 3px solid black ;
+}
+
+#ProductNameField{
+
+    position: absolute;
+    top: 35mm;
+    right: 30mm;
+    height:5.5mm;
+ }
+#ProductDescriptionField{
+    position: absolute;
+    top: 50mm;
+    right: 30mm;
+    height: 5.5mm;
+}
+#ProductpriceField{
+    position: absolute;
+    top: 65mm;
+    right: 30mm;
+    height: 5.5mm;
+}
+
+ #ProductDescriptionText{
+     font-weight: bold;
+     position: absolute;
+     font-weight: bold;
+     position: absolute;
+     top: 45mm;
+     right: 38mm;
+ }
+#ProductNameText{
+    font-weight: bold;
+    position: absolute;
+    font-weight: bold;
+    position: absolute;
+    top: 29mm;
+    right: 48mm;
+
+}
+#ProductpriceText{
+    font-weight: bold;
+    position: absolute;
+    top: 60mm;
+    right: 65mm;
+}
+#logo{
+    position: absolute;
+    right:31cm;
+    height: 4cm;
+}
+#logo2{
+    position: absolute;
+    right: 15cm;
+    height: 4cm;
+}
+#SendProduct{
+    position: absolute;
+    top: 80mm;
+    right: 38mm;
+    border: 3px solid black;
+    background-color: lightyellow;
+    font-size: 18px ;
+}
+#imagePreview{
+    position: absolute;
+    height: 180px;
+    width: 180px;
+    border: 6px solid #283593;
+    right: 22.6cm;
+    top: 10mm;
+}
+#BackButton{
+    position: absolute;
+    top: 90mm;
+    right: 45mm;
+    border: 3px solid black;
+    background-color: lightyellow;
+    font-size: 18px ;
+}
+
+

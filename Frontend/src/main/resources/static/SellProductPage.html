@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Product</title>
+    <link rel="stylesheet" type="text/css" href="SellProduct.css">
+</head>
+<body>
+<img id="logo" src="LOGO.png">
+<img id="logo2" src="LOGO.png">
+
+<img id="imagePreview" >
+<div id="outerdiv">
+
+    <input type="file" id="inputfile">
+    <button type="button" id="Preview Image">Preview Image</button>
+
+
+    <br><label id="ProductNameText">Product Name</label></br>
+    <input id="ProductNameField">
+    <br><label id="ProductDescriptionText">Product Description</label></br>
+    <input id="ProductDescriptionField">
+    <br> <label id="ProductpriceText">Price</label> </br>
+    <input id="ProductpriceField">
+
+<button type="button" id="SendProduct"> Add Product</button>
+<button type="button" id="BackButton"> Back</button>
+</div>
+
+
+</body>
+
+
+<script>
+    function PreviewPhoto() {
+        var photo = document.getElementById("inputfile").files[0]
+        var imagePreview = document.getElementById('imagePreview');
+
+        if (photo) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(photo);
+        }else {
+            alert('Lütfen bir resim dosyası seçin.');
+
+        }
+            }
+    document.getElementById("Preview Image").addEventListener("click",PreviewPhoto)
+</script>
+</html>

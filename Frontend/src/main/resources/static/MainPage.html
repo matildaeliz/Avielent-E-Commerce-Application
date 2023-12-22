@@ -10,16 +10,18 @@
 <img id="logo" src="LOGO.png">
 <button type="button" id = "SearchButton"> Search</button>
 <button type="button" id="GUMP">User Management</button>
-
+<button type="button" id="SellProduct">Sell Product</button>
 <div>
     <label id ="balancetext"> Balance:  </label>
     <label id ="usernametext"> Username:  </label>
 </div>
-
+<input id="SearchInput"  placeholder="Text Here!" >
 
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("SearchInput").style.display = "none"
+
 
         var balance = new XMLHttpRequest();
         balance.open("GET", "http://localhost:9000/user/getBalance")
@@ -46,13 +48,33 @@
         username.send()
 
     });
+</script>
 
+<script>
+    function changeHidden() {
+        var content = document.getElementById("SearchInput");
 
+        if (content.style.display === 'none') {
+            content.style.display = 'block';
+        } else {
+            content.style.display = 'none';
+        }
+    }
+    document.getElementById("SearchButton").addEventListener("click",changeHidden)
 </script>
 <script>
     function GoUserManagementPage (){
         window.location.href="UserManagementPage.html"
     }
     document.getElementById("GUMP").addEventListener("click",GoUserManagementPage)
+
+    function GoSellProductPage(){
+        window.location.href="SellProductPage.html"
+    }
+
+    document.getElementById("SellProduct").addEventListener("click",GoSellProductPage)
 </script>
+
+
+
 </html>
