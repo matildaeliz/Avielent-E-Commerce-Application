@@ -1,0 +1,29 @@
+body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-family:14 px;
+            font-style: oblique;
+            text-align: center;
+            color: green;
+        }
+        header{
+            text-align: center;
+            background color: #365;
+            color: #abe;
+            padding: 1em;
+        }
+        table{
+            text-align: center;
+        }
+        section{
+            background-color: #abb;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+        quantity{
+            text-align: center;
+        }
+        adress{
+            text-align: center;
+        }

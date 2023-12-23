@@ -34,7 +34,6 @@ public class ProductEntity {
         this.product_star = 0.0;
         this.productseller = productseller;
         this.image = image;
-
     }
 
     public ProductEntity() {
