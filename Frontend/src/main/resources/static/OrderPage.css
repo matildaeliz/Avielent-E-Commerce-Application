@@ -3,19 +3,19 @@ body{
 
             font-style: oblique;
             text-align: center;
-            color: green;
+            color: white;
         }
         header{
             text-align: center;
 
-            color: #abe;
+            color: #1e5177;
             padding: 1em;
         }
         table{
             text-align: center;
         }
         section{
-            background-color: #abb;
+            background-color: #467aa2;
         }
         img{
             max-width: 100%;
