@@ -29,4 +29,17 @@
 
 </section>
 </body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productName');
+    const productPrice = urlParams.get('productPrice');
+    const productDescription = urlParams.get('productDescription');
+
+    const productDetailsDiv = document.getElementById('productDetails');
+    productDetailsDiv.innerHTML = `
+            <p>Name: ${productName}</p>
+            <p>Price: ${productPrice}</p>
+            <p>Description: ${productDescription}</p>
+        `;
+</script>
 </html>

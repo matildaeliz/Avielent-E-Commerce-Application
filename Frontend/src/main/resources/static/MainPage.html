@@ -111,11 +111,19 @@
 
         xhr.send();
     }
-function addToCart(product_name) {
-    window.location.href = "orderpage.html?productId=" + productId;
-}
+    function addToCart(productname) {
+        window.location.href = `OrderPage.html?productname=${encodeURIComponent(productname)}`;
+    }
+
 
     document.getElementById("SearchButtonText").addEventListener("click",search)
+</script>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productname');
+
+    document.getElementById('productname').textContent = productName;
 </script>
 
 </html>
