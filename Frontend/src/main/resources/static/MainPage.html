@@ -82,32 +82,40 @@
 
 
 <script>
-function search(){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:9000/product/getProducts?productname="+ document.getElementById("SearchInput").value, true);
+    function search() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:9000/product/getProducts?productname=" + document.getElementById("SearchInput").value, true);
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var productList = JSON.parse(xhr.responseText);
-            var outputDiv = document.getElementById('output');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var productList = JSON.parse(xhr.responseText);
+                var outputDiv = document.getElementById('output');
 
-            productList.forEach(function(product) {
-                var productInfo = document.createElement('p');
-                productInfo.textContent = 'Name: ' + product.product_name + ', Price: ' + product.product_price;
-                outputDiv.appendChild(productInfo);
+                productList.forEach(function (product) {
+                    var productInfo = document.createElement('div');
+                    productInfo.innerHTML = 'Name: ' + product.product_name + ', Price: ' + product.product_price + ', Description:' + product.product_description;
 
-            });
-        } else if (xhr.readyState == 4 && xhr.status != 200) {
-            console.error('Hata oluştu. Durum Kodu:', xhr.status);
-        }
-    };
+                    var addToCartButton = document.createElement('button');
+                    addToCartButton.textContent = 'Add to Cart';
+                    addToCartButton.addEventListener('click', function () {
+                        addToCart(product.product_id);
+                    });
 
-    xhr.send();
+                    productInfo.appendChild(addToCartButton);
+                    outputDiv.appendChild(productInfo);
+                });
+            } else if (xhr.readyState == 4 && xhr.status != 200) {
+                console.error('Error occurred. Status Code:', xhr.status);
+            }
+        };
+
+        xhr.send();
+    }
+function addToCart(product_name) {
+    window.location.href = "orderpage.html?productId=" + productId;
 }
-
 
     document.getElementById("SearchButtonText").addEventListener("click",search)
 </script>
-
 
 </html>
