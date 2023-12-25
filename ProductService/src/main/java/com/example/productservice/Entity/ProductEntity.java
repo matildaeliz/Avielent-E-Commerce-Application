@@ -21,6 +21,7 @@ public class ProductEntity  {
     private String product_price;
     @Column
     private double product_star;
+
     @Column
     private String productseller;
 
@@ -37,4 +38,30 @@ public class ProductEntity  {
     public ProductEntity() {
 
     }
+
+
+    public String getProduct_image() {
+        return product_image;
+    }
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public String getProduct_desc() {
+        return product_desc;
+    }
+
+    public String getProduct_price() {
+        return product_price;
+    }
+
+    public double getProduct_star() {
+        return product_star;
+    }
+
+    public String getProductseller() {
+        return productseller;
+    }
+
 }

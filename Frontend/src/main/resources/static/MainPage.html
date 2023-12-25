@@ -16,11 +16,13 @@
     <label id ="usernametext"> Username:  </label>
 </div>
 <input id="SearchInput"  placeholder="Text Here!" >
-
+<button type="button" id="SearchButtonText"> Search</button>
+<div id="output"></div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("SearchInput").style.display = "none"
+        document.getElementById("SearchButtonText").style.display="none"
 
 
         var balance = new XMLHttpRequest();
@@ -53,11 +55,13 @@
 <script>
     function changeHidden() {
         var content = document.getElementById("SearchInput");
-
-        if (content.style.display === 'none') {
+        var content2 = document.getElementById("SearchButtonText");
+        if (content.style.display === 'none' ) {
             content.style.display = 'block';
+            content2.style.display="block";
         } else {
             content.style.display = 'none';
+            content2.style.display="none";
         }
     }
     document.getElementById("SearchButton").addEventListener("click",changeHidden)
@@ -75,6 +79,35 @@
     document.getElementById("SellProduct").addEventListener("click",GoSellProductPage)
 </script>
 
+
+
+<script>
+function search(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:9000/product/getProducts?productname="+ document.getElementById("SearchInput").value, true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var productList = JSON.parse(xhr.responseText);
+            var outputDiv = document.getElementById('output');
+
+            productList.forEach(function(product) {
+                var productInfo = document.createElement('p');
+                productInfo.textContent = 'Name: ' + product.product_name + ', Price: ' + product.product_price;
+                outputDiv.appendChild(productInfo);
+
+            });
+        } else if (xhr.readyState == 4 && xhr.status != 200) {
+            console.error('Hata oluştu. Durum Kodu:', xhr.status);
+        }
+    };
+
+    xhr.send();
+}
+
+
+    document.getElementById("SearchButtonText").addEventListener("click",search)
+</script>
 
 
 </html>
