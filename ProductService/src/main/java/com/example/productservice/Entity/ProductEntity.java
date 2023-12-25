@@ -29,9 +29,13 @@ public class ProductEntity  {
         this.product_desc = product_desc;
         this.product_star = 0.0;
         this.productseller = productseller;
+<<<<<<< HEAD
         this.product_price = product_price;
         this.product_image =product_image;
 
+=======
+        this.image = image;
+>>>>>>> fa018d4576ec3f74a168bedb1d0ce7dd0b903a0b
     }
 
     public ProductEntity() {

@@ -45,9 +45,16 @@
         }else {
             alert('Please choose a photo');
 
-        }
+
     }
     document.getElementById("Preview Image").addEventListener("click",PreviewPhoto)
+
+            }
+    function GoBackToMainPage (){
+        window.location.href="MainPage.html"
+    }
+    document.getElementById("BackButton").addEventListener("click",GoBackToMainPage)
+
 </script>
 
 <script>
@@ -59,7 +66,7 @@
         username.onreadystatechange = function () {
             if (username.readyState === 4 && username.status === 200) {
                 usernametext = username.responseText;
-                console.log("Kullanıcı Adı:", usernametext);
+
 
                 var productnames = document.getElementById("ProductNameField").value;
                 var productdescs = document.getElementById("ProductDescriptionField").value;
@@ -80,9 +87,9 @@
 
                 xhr.onload = function () {
                     if (xhr.status === 200) {
-                        console.log('Başarılı:', xhr.responseText);
+                        console.log('Succesfull:', xhr.responseText);
                     } else {
-                        console.error('Hata:', xhr.statusText);
+                        console.error('Error:', xhr.statusText);
                     }
                 };
 
