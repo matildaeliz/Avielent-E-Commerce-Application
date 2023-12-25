@@ -14,7 +14,7 @@
     top: 35mm;
     right: 30mm;
     height:5.5mm;
- }
+}
 #ProductDescriptionField{
     position: absolute;
     top: 50mm;
@@ -28,14 +28,14 @@
     height: 5.5mm;
 }
 
- #ProductDescriptionText{
-     font-weight: bold;
-     position: absolute;
-     font-weight: bold;
-     position: absolute;
-     top: 45mm;
-     right: 38mm;
- }
+#ProductDescriptionText{
+    font-weight: bold;
+    position: absolute;
+    font-weight: bold;
+    position: absolute;
+    top: 45mm;
+    right: 38mm;
+}
 #ProductNameText{
     font-weight: bold;
     position: absolute;
@@ -85,5 +85,3 @@
     background-color: lightyellow;
     font-size: 18px ;
 }
-
-

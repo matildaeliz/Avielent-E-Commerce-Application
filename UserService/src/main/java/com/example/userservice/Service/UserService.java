@@ -1,5 +1,6 @@
 package com.example.userservice.Service;
 
+
 import com.example.userservice.Entity.UserEntity;
 import com.example.userservice.Repository.UserRepository;
 import com.example.userservice.Response.UserResponse;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.awt.*;
+
 
 
 @Service
@@ -18,7 +19,7 @@ public class UserService implements LoginInterface{
     @Autowired
     private UserRepository userRepository;
 
-    private String username ;
+   private String username ;
 
      public ResponseEntity addUser(UserResponse userResponse){
 
@@ -37,6 +38,7 @@ public class UserService implements LoginInterface{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }else {
             this.username = username;
+
             return  ResponseEntity.ok("Logged in");
         }
     }

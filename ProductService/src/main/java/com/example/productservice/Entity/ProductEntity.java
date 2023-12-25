@@ -1,39 +1,36 @@
 package com.example.productservice.Entity;
 
-import jakarta.persistence.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-import java.nio.file.FileSystem;
-import java.nio.file.Files;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "ProductInfo")
-public class ProductEntity {
+public class ProductEntity  {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 65555)
+    private String product_image;
     @Column
     private String product_name;
     @Column
     private String product_desc;
     @Column
+    private String product_price;
+    @Column
     private double product_star;
     @Column
     private String productseller;
-    @Column
-    private String image;
 
-
-    public ProductEntity(String product_name, String product_desc, String productseller, String image) {
+    public ProductEntity(String product_name, String product_desc, String product_price, String productseller, String product_image) {
         this.product_name = product_name;
         this.product_desc = product_desc;
         this.product_star = 0.0;
         this.productseller = productseller;
-        this.image = image;
+        this.product_price = product_price;
+        this.product_image =product_image;
 
     }
 

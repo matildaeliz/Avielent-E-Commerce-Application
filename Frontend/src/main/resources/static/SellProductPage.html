@@ -23,8 +23,8 @@
     <br> <label id="ProductpriceText">Price</label> </br>
     <input id="ProductpriceField">
 
-<button type="button" id="SendProduct"> Add Product</button>
-<button type="button" id="BackButton"> Back</button>
+    <button type="button" id="SendProduct"> Add Product</button>
+    <button type="button" id="BackButton"> Back</button>
 </div>
 
 
@@ -43,10 +43,57 @@
             };
             reader.readAsDataURL(photo);
         }else {
-            alert('Lütfen bir resim dosyası seçin.');
+            alert('Please choose a photo');
 
         }
-            }
+    }
     document.getElementById("Preview Image").addEventListener("click",PreviewPhoto)
+</script>
+
+<script>
+    function uploadfile() {
+        var username = new XMLHttpRequest();
+        var usernametext = "Arda";
+
+        username.open("GET", "http://localhost:9000/user/getUsername");
+        username.onreadystatechange = function () {
+            if (username.readyState === 4 && username.status === 200) {
+                usernametext = username.responseText;
+                console.log("Kullanıcı Adı:", usernametext);
+
+                var productnames = document.getElementById("ProductNameField").value;
+                var productdescs = document.getElementById("ProductDescriptionField").value;
+                var productprices = document.getElementById("ProductpriceField").value;
+
+                var fileInput = document.getElementById('inputfile');
+                var file = fileInput.files[0];
+
+                var formdata = new FormData();
+                formdata.append("file", file);
+                formdata.append("productname", productnames);
+                formdata.append("productdescription", productdescs);
+                formdata.append("productprice", productprices);
+                formdata.append("username", usernametext);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', "http://localhost:9000/product/postPhoto", true);
+
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log('Başarılı:', xhr.responseText);
+                    } else {
+                        console.error('Hata:', xhr.statusText);
+                    }
+                };
+
+                xhr.send(formdata);
+            }
+        };
+
+        username.send();
+
+    }
+
+    document.getElementById("SendProduct").addEventListener("click",uploadfile);
 </script>
 </html>
