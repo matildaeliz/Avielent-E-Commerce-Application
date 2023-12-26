@@ -6,10 +6,10 @@ import com.example.orderservice.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class OrderService {
+
     private final OrderRepository orderRepository;
 
     @Autowired
@@ -17,7 +17,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public List<OrderEntity> getOrdersByProductName(String productName) {
+    public OrderEntity getOrderEntityByProductName(String productName) {
         return orderRepository.findByProductName(productName);
     }
 }
