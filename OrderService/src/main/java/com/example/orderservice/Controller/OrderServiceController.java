@@ -2,7 +2,9 @@ package com.example.orderservice.Controller;
 
 import com.example.orderservice.Entity.OrderEntity;
 import com.example.orderservice.Service.OrderService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +31,13 @@ public class OrderServiceController {
         }
     }
 
+    @GetMapping("/getProducts")
+    public String getRelatedProducts(@RequestParam("productname") String productname) throws JsonProcessingException {
+        OrderEntity order = orderService.getOrderEntityByProductName(productname);
+        if (order != null) {
+            return orderService.convertOrderEntityToJson(order);
+        } else {
+            return "Product not found";
+        }
+    }
 }
