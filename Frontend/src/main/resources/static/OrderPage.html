@@ -14,29 +14,20 @@
     <td id="review">Product Review</td>
 </header>
 <section>
-    <form name="adress" action="" method="get">
+    <form name="address" action="#" id="ratingForm">
         <table>
-
-            <input type="radio" name="rating" value="yes">5-Star<br>
-            <input type="radio" name="rating" value="yes">4-Star<br>
-            <input type="radio" name="rating" value="yes">3-Star<br>
-            <input type="radio" name="rating" value="yes">2-Star<br>
-            <input type="radio" name="rating" value="yes">1-Star
-
+            <input type="number" name="rating" id="ratingInput" min="1" max="5" placeholder="Rate the product!">
         </table>
+        <button type="submit">Submit</button>
     </form>
 <div id="orderdiv">
-
-
     <label id="productnamelabel"> Product Name:</label>
     <label id="productnametext"> sdssd</label>
     <label id="productDescriptionlabel"> Product Description:</label>
     <label id="productDescriptiontext"> Product Name:</label>
     <label id="productpricelabel"> Product Price:</label>
     <label id="productpricetext">dsdsd </label>
-
     <button type="submit">Submit</button>
-
 </div>
 
 
@@ -55,7 +46,28 @@
          document.getElementById("productpricetext").innerHTML= productPrice
          document.getElementById("productDescriptiontext").innerHTML = productDesc
 
+         const ratingInput = document.getElementById('ratingInput');
 
+         ratingInput.addEventListener('input', function(event) {
+             const enteredValue = event.target.value;
+             const intValue = parseInt(enteredValue);
+
+             if (isNaN(intValue) || intValue < 1 || intValue > 5) {
+                 event.target.value = '';
+             }
+         });
+         const ratingForm = document.getElementById('ratingForm');
+         ratingForm.addEventListener('submit', function(event) {
+             event.preventDefault();
+
+             const ratingValue = parseInt(ratingInput.value);
+
+             if (ratingValue >= 1 && ratingValue <= 5) {
+                 console.log('Selected rating: ' + ratingValue);
+             } else {
+                 alert('Please rate the product from 1 to 5');
+             }
+         });
      })
 
 

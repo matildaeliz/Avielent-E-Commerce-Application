@@ -1,45 +1,56 @@
-body{
-            font-family: Arial, Helvetica, sans-serif;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
 
-            font-style: oblique;
-            text-align: center;
-            color: white;
-        }
-        header{
-            text-align: center;
+header {
+    text-align: center;
+    color: #1e5177;
+    padding: 1em;
+}
 
-            color: #1e5177;
-            padding: 1em;
-        }
-        table{
-            text-align: center;
-        }
-        section{
-            background-color: #467aa2;
-        }
-        img{
-            max-width: 100%;
-            height: auto;
-        }
-        quantity{
-            text-align: center;
-        }
-        adress{
-            text-align: center;
-        }
-        #orderdiv{
-            position: absolute;
-            height: 5cm;
-            width: 5cm;
-            top: 12cm;
-            right: 23cm;
-        }
+table {
+    margin: 0 auto;
+}
 
-        #productDescriptiontext,#productnametext,#productpricetext{
-            color: black;
-            display: block;
-        }
+section {
+    background-color: #467aa2;
+    padding: 2em 0;
+}
 
-        #productDescriptionlabel,#productnamelabel,#productpricelabel{
-            color: #467aa2;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#orderdiv {
+    margin: 0 auto;
+    width: 50%;
+    background-color: white;
+    padding: 1em;
+    text-align: left;
+    margin-top: 2em;
+}
+
+#productDescriptiontext, #productnametext, #productpricetext {
+    color: black;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#productDescriptionlabel, #productnamelabel, #productpricelabel {
+    color: #467aa2;
+    margin-bottom: 0.5em;
+}
+
+
+ #ratingInput {
+     width: 8%;
+     margin: 1em auto;
+     padding: 0.5em;
+     box-sizing: border-box;
+ }
