@@ -25,21 +25,41 @@
 
         </table>
     </form>
+<div id="orderdiv">
+
+
+    <label id="productnamelabel"> Product Name:</label>
+    <label id="productnametext"> sdssd</label>
+    <label id="productDescriptionlabel"> Product Description:</label>
+    <label id="productDescriptiontext"> Product Name:</label>
+    <label id="productpricelabel"> Product Price:</label>
+    <label id="productpricetext">dsdsd </label>
+
     <button type="submit">Submit</button>
+
+</div>
+
 
 </section>
 </body>
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const productName = urlParams.get('productName');
-    const productPrice = urlParams.get('productPrice');
-    const productDescription = urlParams.get('productDescription');
 
-    const productDetailsDiv = document.getElementById('productDetails');
-    productDetailsDiv.innerHTML = `
-            <p>Name: ${productName}</p>
-            <p>Price: ${productPrice}</p>
-            <p>Description: ${productDescription}</p>
-        `;
+     document.addEventListener("DOMContentLoaded", function (){
+
+         const urlParams = new URLSearchParams(window.location.search);
+         const productName = urlParams.get('productname');
+         const productPrice = urlParams.get("productprice");
+         const productDesc = urlParams.get("productdesc");
+
+         document.getElementById('productnametext').innerHTML =productName
+         document.getElementById("productpricetext").innerHTML= productPrice
+         document.getElementById("productDescriptiontext").innerHTML = productDesc
+
+
+     })
+
+
+
+
 </script>
 </html>

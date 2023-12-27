@@ -90,15 +90,18 @@
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var productList = JSON.parse(xhr.responseText);
                 var outputDiv = document.getElementById('output');
-
+                 console.log(productList)
                 productList.forEach(function (product) {
                     var productInfo = document.createElement('div');
-                    productInfo.innerHTML = 'Name: ' + product.product_name + ', Price: ' + product.product_price + ', Description:' + product.product_description;
+                    productInfo.innerHTML = 'Name: ' + product.product_name + ', Price:' + product.product_price + ', Description:' + product.product_desc
 
                     var addToCartButton = document.createElement('button');
                     addToCartButton.textContent = 'Add to Cart';
+
+
                     addToCartButton.addEventListener('click', function () {
-                        addToCart(product.product_id);
+
+                       window.location.href = "OrderPage.html?productname=" + product.product_name+"&productprice="+product.product_price+"&productdesc="+product.product_desc
                     });
 
                     productInfo.appendChild(addToCartButton);
@@ -110,9 +113,6 @@
         };
 
         xhr.send();
-    }
-    function addToCart(productname) {
-        window.location.href = `OrderPage.html?productname=${encodeURIComponent(productname)}`;
     }
 
 

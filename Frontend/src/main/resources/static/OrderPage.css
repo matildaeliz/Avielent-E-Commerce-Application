@@ -27,3 +27,19 @@ body{
         adress{
             text-align: center;
         }
+        #orderdiv{
+            position: absolute;
+            height: 5cm;
+            width: 5cm;
+            top: 12cm;
+            right: 23cm;
+        }
+
+        #productDescriptiontext,#productnametext,#productpricetext{
+            color: black;
+            display: block;
+        }
+
+        #productDescriptionlabel,#productnamelabel,#productpricelabel{
+            color: #467aa2;
+        }
