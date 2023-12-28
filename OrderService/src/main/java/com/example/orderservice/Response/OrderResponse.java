@@ -4,16 +4,20 @@ public class OrderResponse {
 
     private String productName;
     private String productDescription;
-    private String productImage;
-    private String productPrice;
-    private String productSeller;
 
-    public OrderResponse(String productName, String productDescription, String productSeller, String productPrice, String productImage) {
+    private String productPrice;
+
+    private String productBuyer;
+
+
+    private String balance;
+
+    public OrderResponse(String productName, String productDescription, String productPrice, String productBuyer, String balance) {
         this.productName = productName;
         this.productDescription = productDescription;
-        this.productSeller = productSeller;
         this.productPrice = productPrice;
-        this.productImage = productImage;
+        this.productBuyer = productBuyer;
+        this.balance = balance;
     }
 
     public String getProductName() {
@@ -24,15 +28,15 @@ public class OrderResponse {
         return productDescription;
     }
 
-    public String getProductSeller() {
-        return productSeller;
+    public String getBalance() {
+        return balance;
     }
 
-    public String getProductImage() {
-        return productImage;
+    public String getProductBuyer() {
+        return productBuyer;
     }
-
     public String getProductPrice() {
         return productPrice;
     }
+
 }

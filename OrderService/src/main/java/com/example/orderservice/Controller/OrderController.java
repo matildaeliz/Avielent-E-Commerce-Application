@@ -1,10 +1,10 @@
 package com.example.orderservice.Controller;
 
 import com.example.orderservice.Entity.OrderEntity;
+import com.example.orderservice.Response.OrderResponse;
 import com.example.orderservice.Service.OrderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("order")
 @CrossOrigin(origins = "http:localhost:9000")
-public class OrderServiceController {
+public class OrderController {
 
     private final OrderService orderService;
 
+
+
+
+
     @Autowired
-    public OrderServiceController(OrderService orderService) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
 
@@ -40,4 +44,12 @@ public class OrderServiceController {
             return "Product not found";
         }
     }
+
+    @GetMapping("/addOrder")
+    public ResponseEntity addOrder(@RequestParam("pname")String pname,@RequestParam("pdesc")String pdesc,@RequestParam("pprice")String pprice,@RequestParam("buyer")String buyer,@RequestParam("balance")String balance){
+      return orderService.addOrder(pname, pdesc, pprice, buyer, balance);
+    }
+
+
+
 }

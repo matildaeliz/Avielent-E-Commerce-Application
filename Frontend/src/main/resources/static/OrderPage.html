@@ -27,7 +27,7 @@
     <label id="productDescriptiontext"> Product Name:</label>
     <label id="productpricelabel"> Product Price:</label>
     <label id="productpricetext">dsdsd </label>
-    <button type="submit">Submit</button>
+    <button type="submit" id="submits">Submit</button>
 </div>
 
 
@@ -42,9 +42,9 @@
          const productPrice = urlParams.get("productprice");
          const productDesc = urlParams.get("productdesc");
 
-         document.getElementById('productnametext').innerHTML =productName
-         document.getElementById("productpricetext").innerHTML= productPrice
-         document.getElementById("productDescriptiontext").innerHTML = productDesc
+         document.getElementById('productnametext').textContent = productName
+         document.getElementById("productpricetext").textContent= productPrice
+         document.getElementById("productDescriptiontext").textContent = productDesc
 
          const ratingInput = document.getElementById('ratingInput');
 
@@ -74,4 +74,57 @@
 
 
 </script>
+<script>
+    function addOrder() {
+        var username = new XMLHttpRequest();
+        username.open("GET", "http://localhost:9000/user/getUsername");
+        var usernametext;
+        username.onreadystatechange = function () {
+            if (username.readyState === 4) {
+                if (username.status === 200) {
+                    usernametext = username.responseText;
+
+                    var balance = new XMLHttpRequest();
+                    balance.open("GET", "http://localhost:9000/user/getBalance");
+                    var balancetext;
+                    balance.onreadystatechange = function () {
+                        if (balance.readyState === 4) {
+                            if (balance.status === 200) {
+                                balancetext = balance.responseText;
+
+                                var pName = document.getElementById("productnametext").textContent;
+                                var pDesc = document.getElementById("productDescriptiontext").textContent;
+                                var pPrice = document.getElementById("productpricetext").textContent;
+
+                                var order = new XMLHttpRequest();
+                                order.open('GET', "http://localhost:9000/order/addOrder?pname=" + pName + "&pdesc=" + pDesc + "&pprice=" + pPrice + "&buyer=" + usernametext + "&balance=" + balancetext, true);
+
+                                order.onreadystatechange = function () {
+                                    if (order.readyState === 4) {
+                                        if (order.status === 200) {
+                                            alert("Successful");
+                                        }else{
+                                            alert("You dont have enough money")
+                                        }
+                                    }
+                                };
+                                order.send();
+                            }
+                        }
+                    };
+                    balance.send();
+                }
+            }
+        };
+        username.send();
+    }
+
+
+
+
+    document.getElementById("submits").addEventListener("click",addOrder)
+</script>
+
+
 </html>
+

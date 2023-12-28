@@ -9,7 +9,8 @@ public class OrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+    @Column
+    private int orderId;
 
     @Column
     private String productName;
@@ -20,17 +21,22 @@ public class OrderEntity {
     @Column
     private String productPrice;
 
+    private String productBuyer;
+
+
+
     public OrderEntity() {
     }
 
-    public OrderEntity(String productName, String productDescription, String productPrice) {
+    public OrderEntity(String productName, String productDescription, String productPrice, String productBuyer) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
+        this.productBuyer =productBuyer;
     }
 
 
-    public Long getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
@@ -38,8 +44,15 @@ public class OrderEntity {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public String getProductDescription() {
+        return productDescription;
     }
 
+    public String getProductPrice() {
+        return productPrice;
+    }
+
+    public String getProductBuyer() {
+        return productBuyer;
+    }
 }

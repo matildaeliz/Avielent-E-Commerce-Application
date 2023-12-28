@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
+public interface OrderRepository extends JpaRepository<OrderEntity,String> {
 
     @Query("SELECT order FROM OrderEntity order WHERE order.productName = :productName")
     OrderEntity findByProductName(@Param("productName") String productName);
