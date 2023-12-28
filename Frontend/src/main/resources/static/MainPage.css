@@ -13,6 +13,7 @@
     height: 1cm;
     border: 4px solid #283593;
     font-size: 20px;
+    font-weight: bold;
 }
 #SearchButton{
     position: absolute;
@@ -22,7 +23,7 @@
     height: 1cm;
     border: 4px solid #283593;
     font-size: 20px;
-
+    font-weight: bold;
 }
 #usericon{
     position: absolute;
@@ -33,7 +34,7 @@
 #balancetext{
     position: absolute;
     font-weight: bold;
-    right: 2.8cm;
+    right: 2.2cm;
     top: 4cm;
 }
 #usernametext{
@@ -59,6 +60,7 @@
     height: 1cm;
     border: 4px solid #283593;
     font-size: 20px;
+    font-weight: bold;
 }
 
 p {
@@ -80,4 +82,5 @@ p {
     position: absolute;
     top:320px;
     left: 940px;
+    font-weight: bold;
 }
