@@ -48,6 +48,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button:hover {
@@ -79,10 +80,11 @@ button + button {
 .balance-section,.password-section,.username-section,.e-mail-section,#goBackButton{
     width: 10cm;
     margin-left: 18cm;
+    font-weight: bold;
 }
 #goBackButton{
     width: 3cm;
-    margin-left: 21.5cm;
+    margin-left: 18.5cm;
 }
 .balance-section {
     display: flex;

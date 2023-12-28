@@ -7,7 +7,6 @@
     width: 10cm;
     border: 3px solid black ;
 }
-
 #ProductNameField{
 
     position: absolute;
@@ -21,7 +20,7 @@
     right: 30mm;
     height: 5.5mm;
 }
-#ProductpriceField{
+#ProductPriceField{
     position: absolute;
     top: 65mm;
     right: 30mm;
@@ -45,7 +44,7 @@
     right: 48mm;
 
 }
-#ProductpriceText{
+#ProductPriceText{
     font-weight: bold;
     position: absolute;
     top: 60mm;
@@ -54,20 +53,21 @@
 #logo{
     position: absolute;
     right:31cm;
-    height: 4cm;
+    height: 5cm;
 }
 #logo2{
     position: absolute;
     right: 15cm;
-    height: 4cm;
+    height: 5cm;
 }
 #SendProduct{
     position: absolute;
     top: 80mm;
     right: 38mm;
     border: 3px solid black;
-    background-color: lightyellow;
-    font-size: 18px ;
+    background-color: white;
+    font-size: 18px;
+    font-weight = bold;
 }
 #imagePreview{
     position: absolute;
@@ -76,12 +76,14 @@
     border: 6px solid #283593;
     right: 22.6cm;
     top: 10mm;
+    font-weight = bold;
 }
 #BackButton{
     position: absolute;
     top: 90mm;
     right: 45mm;
     border: 3px solid black;
-    background-color: lightyellow;
+    background-color: white;
     font-size: 18px ;
+    font-weight = bold;
 }
