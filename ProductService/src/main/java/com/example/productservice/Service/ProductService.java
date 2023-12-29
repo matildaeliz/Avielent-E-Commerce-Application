@@ -16,16 +16,25 @@ public class ProductService {
      public ProductRepository productRepository;
 
     public ResponseEntity addProduct(String name, String desc, String price, String seller, String image){
-       productRepository.save(new ProductEntity(name,desc,price,seller,image));
+        if (name == null || desc == null || price == null || image == null || name=="" ||desc=="" || price ==""||image=="") {
+            return ResponseEntity.badRequest().build();
+        }else{
+            productRepository.save(new ProductEntity(name,desc,price,seller,image));
 
-       return ResponseEntity.ok("");
+            return ResponseEntity.ok("");
+        }
+
     }
 
 
-    public String listRelatedProduct(String productname) throws JsonProcessingException {
+    public ResponseEntity listRelatedProduct(String productname) throws JsonProcessingException {
         ArrayList<ProductEntity> list = productRepository.getRelatedProduct(productname);
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(list);
+        if(list.isEmpty()){
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(objectMapper.writeValueAsString(list));
     }
 
 }

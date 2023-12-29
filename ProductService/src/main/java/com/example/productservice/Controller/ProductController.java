@@ -27,7 +27,7 @@ public class ProductController {
              return productService.addProduct(name,description,price,username,Base64.getEncoder().encodeToString(multipartFile.getBytes()));
         }
           @GetMapping("/getProducts")
-        public String getRelatedProducts(@RequestParam("productname") String productname) throws JsonProcessingException {
+        public ResponseEntity getRelatedProducts(@RequestParam("productname") String productname) throws JsonProcessingException {
 
             return productService.listRelatedProduct(productname);
 
