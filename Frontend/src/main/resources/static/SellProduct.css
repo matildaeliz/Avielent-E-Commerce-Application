@@ -2,13 +2,13 @@
     position: absolute;
     right: 20cm;
     top: 7cm;
-    background-color: #acb8ff;
+    background-color: #7b8dbc;
     height: 10cm;
     width: 10cm;
     border: 3px solid black ;
 }
 #ProductNameField{
-
+    border: 1px solid black ;
     position: absolute;
     top: 35mm;
     right: 30mm;
@@ -19,12 +19,14 @@
     top: 50mm;
     right: 30mm;
     height: 5.5mm;
+    border: 1px solid black ;
 }
 #ProductPriceField{
     position: absolute;
     top: 65mm;
     right: 30mm;
     height: 5.5mm;
+    border: 1px solid black ;
 }
 
 #ProductDescriptionText{
