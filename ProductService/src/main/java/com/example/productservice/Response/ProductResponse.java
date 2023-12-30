@@ -13,6 +13,8 @@ public class ProductResponse {
     private String productimage;
     private String productprice;
 
+
+
     private String productseller;
 
     public ProductResponse(String product_name, String product_desc, String productseller,String product_price,String product_image) {

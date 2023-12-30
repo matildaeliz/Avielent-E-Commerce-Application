@@ -1,17 +1,16 @@
 package com.example.userservice;
 
-import com.example.userservice.Entity.UserEntity;
+
 import com.example.userservice.Repository.UserRepository;
 import com.example.userservice.Response.UserResponse;
 import com.example.userservice.Service.UserService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -20,25 +19,11 @@ class UserServiceApplicationTests {
  UserService userService;
     @Autowired
     UserRepository userRepository;
+
     @Test
     void contextLoads() {
     }
-@Test
-   void createAccountTest(){
-        ResponseEntity a =  userService.addUser(new UserResponse("erer","3232","metelax",0));
 
-          assertEquals(HttpStatus.OK,a.getStatusCode());
-
-
-   }
-    @Test
-    void createAccountErrorTest(){
-        ResponseEntity a =  userService.addUser(new UserResponse("mete","3232","metelax",0));
-        ResponseEntity b =  userService.addUser(new UserResponse("mete","3232","metelax",0));
-        assertEquals(HttpStatus.BAD_REQUEST,b.getStatusCode());
-
-
-    }
    @Test
     void updateBalanceFailTest(){
         ResponseEntity a = UptB(-3999);
@@ -55,6 +40,23 @@ class UserServiceApplicationTests {
 
         assertEquals(HttpStatus.OK,a.getStatusCode());
    }
+
+    @Test
+    void createAccountTest(){
+        ResponseEntity a =  userService.addUser(new UserResponse("erer","3232","metelax",5));
+
+        assertEquals(HttpStatus.OK,a.getStatusCode());
+
+
+    }
+    @Test
+    void createAccountErrorTest(){
+        userService.addUser(new UserResponse("mete","3232","metelax",0));
+        ResponseEntity b =  userService.addUser(new UserResponse("mete","3232","metelax",0));
+        assertEquals(HttpStatus.BAD_REQUEST,b.getStatusCode());
+
+
+    }
    ResponseEntity chngP(String pass){
        userRepository.updatePassword("ardam",pass);
        return ResponseEntity.ok("Password changed");
@@ -73,6 +75,7 @@ class UserServiceApplicationTests {
            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
        }
    }
+
 }
 
 

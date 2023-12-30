@@ -5,6 +5,7 @@ import com.example.productservice.Repository.ProductRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,33 @@ public class ProductService {
         }
 
         return ResponseEntity.ok(objectMapper.writeValueAsString(list));
+    }
+
+    public ResponseEntity calculateAverageofStar(int star, int id){
+        try {
+            if(star > 5 || star < 0 ){
+                return ResponseEntity.badRequest().build();
+            } else {
+                double getstar = 0.0 ;
+
+                if(productRepository.getStarCountbyid(id) == 0){
+                    getstar = productRepository.getStarbyid(id);
+                }else{
+                    getstar = productRepository.getStarbyid(id)+star;
+                }
+
+              int getcount = productRepository.getStarCountbyid(id);
+              double newstar = getstar/getcount;
+               productRepository.updateCountbyid(id);
+               productRepository.updateStarbyid(id,newstar);
+
+               return ResponseEntity.ok("");
+
+            }
+
+        }catch (NumberFormatException numberFormatException){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 }

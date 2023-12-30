@@ -16,10 +16,6 @@ class ProductServiceApplicationTests {
     @Autowired
     ProductService productService;
 
-    @Test
-    void contextLoads() {
-    }
-
 
 
     @Test
@@ -38,5 +34,11 @@ class ProductServiceApplicationTests {
     void ListProduct() throws JsonProcessingException {
        ResponseEntity a =  productService.listRelatedProduct("rtx");
         assertEquals(HttpStatus.OK,a.getStatusCode());
+    }
+
+    @Test
+    void calculatingStarTest(){
+       ResponseEntity a = productService.calculateAverageofStar(2,24);
+       assertEquals(HttpStatus.OK,a.getStatusCode());
     }
 }

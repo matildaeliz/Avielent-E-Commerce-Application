@@ -32,4 +32,10 @@ public class ProductController {
             return productService.listRelatedProduct(productname);
 
         }
+        @GetMapping("/calculateAverage")
+        ResponseEntity calculateAverage(@RequestParam String star, @RequestParam String id){
+
+            return productService.calculateAverageofStar(Integer.parseInt(star),Integer.parseInt(id));
+
+        }
 }

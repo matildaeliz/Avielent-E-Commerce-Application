@@ -13,9 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class OrderServiceApplicationTests {
     @Autowired
     OrderService orderService;
-    @Test
-    void contextLoads() {
-    }
+
     @Test
     void CheckBalanceWhileOrderTest(){
         ResponseEntity a = orderService.addOrder("TXT2000","Graphic Card","3000","Ardam","5");

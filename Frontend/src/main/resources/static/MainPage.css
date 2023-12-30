@@ -80,7 +80,15 @@ p {
 }
 #SearchButtonText{
     position: absolute;
-    top:320px;
+    top:310px;
     left: 940px;
     font-weight: bold;
+}
+
+#starinput{
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    left: 930px;
+    top: 340px;
 }

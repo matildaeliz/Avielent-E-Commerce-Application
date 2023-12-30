@@ -17,8 +17,82 @@
 </div>
 <input id="SearchInput"  placeholder="Text Here!" >
 <button type="button" id="SearchButtonText"> Search</button>
+<input id="starinput" placeholder="Star Here!">
 <div id="output"></div>
 </body>
+
+
+<script>
+    var starInput = document.getElementById("starinput");
+
+    function search() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:9000/product/getProducts?productname=" + document.getElementById("SearchInput").value, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var productList = JSON.parse(xhr.responseText);
+                    var outputDiv = document.getElementById('output');
+                    console.log(productList);
+                    productList.forEach(function (product) {
+                        var productInfo = document.createElement('div');
+                        productInfo.innerHTML = 'Name: ' + product.product_name + ', Price:' + product.product_price + ', Description:' + product.product_desc + ", Star:" + product.product_star;
+
+                        var addToCartButton = document.createElement('button');
+                        addToCartButton.textContent = 'Add to Cart';
+
+                        var productStar = document.createElement("p")
+                        productStar.textContent = "Star: " + product.product_star
+
+                        var giveStarButton = document.createElement("button");
+                        giveStarButton.textContent = "Give Star"
+
+                        addToCartButton.addEventListener('click', function () {
+                            window.location.href = "OrderPage.html?productname=" + product.product_name + "&productprice=" + product.product_price + "&productdesc=" + product.product_desc
+                        });
+
+                        giveStarButton.addEventListener('click', function () {
+                            var star = new XMLHttpRequest();
+
+                            star.open("GET", "http://localhost:9000/product/calculateAverage?star=" + starInput.value + "&id=" + product.id)
+                            star.onreadystatechange = function () {
+                                if (star.readyState == 4) {
+                                    if (star.status == 200) {
+                                        alert("Successful");
+                                    } else {
+                                        alert("Error: " + star.status + " - " + star.statusText);
+                                    }
+                                }
+                            }
+                            star.send()
+                        });
+
+                        productInfo.appendChild(giveStarButton);
+                        productInfo.appendChild(addToCartButton);
+                        outputDiv.appendChild(productInfo);
+                    });
+                } else {
+                    console.error('Error occurred. Status Code:', xhr.status);
+                }
+            }
+        };
+
+        xhr.send();
+    }
+
+
+    document.getElementById("SearchButtonText").addEventListener("click",search)
+</script>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productname');
+
+    document.getElementById('productname').textContent = productName;
+</script>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("SearchInput").style.display = "none"
@@ -79,51 +153,5 @@
     document.getElementById("SellProduct").addEventListener("click",GoSellProductPage)
 </script>
 
-
-
-<script>
-    function search() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:9000/product/getProducts?productname=" + document.getElementById("SearchInput").value, true);
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var productList = JSON.parse(xhr.responseText);
-                var outputDiv = document.getElementById('output');
-                 console.log(productList)
-                productList.forEach(function (product) {
-                    var productInfo = document.createElement('div');
-                    productInfo.innerHTML = 'Name: ' + product.product_name + ', Price:' + product.product_price + ', Description:' + product.product_desc
-
-                    var addToCartButton = document.createElement('button');
-                    addToCartButton.textContent = 'Add to Cart';
-
-
-                    addToCartButton.addEventListener('click', function () {
-
-                       window.location.href = "OrderPage.html?productname=" + product.product_name+"&productprice="+product.product_price+"&productdesc="+product.product_desc
-                    });
-
-                    productInfo.appendChild(addToCartButton);
-                    outputDiv.appendChild(productInfo);
-                });
-            } else if (xhr.readyState == 4 && xhr.status != 200) {
-                console.error('Error occurred. Status Code:', xhr.status);
-            }
-        };
-
-        xhr.send();
-    }
-
-
-    document.getElementById("SearchButtonText").addEventListener("click",search)
-</script>
-
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const productName = urlParams.get('productname');
-
-    document.getElementById('productname').textContent = productName;
-</script>
 
 </html>

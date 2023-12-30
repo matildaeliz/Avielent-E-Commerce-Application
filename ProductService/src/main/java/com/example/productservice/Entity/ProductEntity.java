@@ -1,12 +1,14 @@
 package com.example.productservice.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "ProductInfo")
 public class ProductEntity  {
+    @JsonProperty("id")
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +25,8 @@ public class ProductEntity  {
     private double product_star;
 
     @Column
+    private int product_starcount;
+    @Column
     private String productseller;
 
     public ProductEntity(String product_name, String product_desc, String product_price, String productseller, String product_image) {
@@ -32,6 +36,8 @@ public class ProductEntity  {
         this.productseller = productseller;
         this.product_price = product_price;
         this.product_image =product_image;
+        this.product_starcount = 0;
+
 
     }
 
