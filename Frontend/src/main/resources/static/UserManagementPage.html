@@ -21,8 +21,13 @@
 
   <div class="password-section">
     <label for="password">New Password:</label>
-    <input type="password" id="password" name="password" required>
+    <input type="password" id="password" name="password" >
+    <label for="password">Re-New Password:</label>
+    <input type="password" id="Repasswordd" name="password" >
     <button type="button" id="changepasswordButton">Change Password</button>
+
+
+
   </div>
 
   <div class="balance-section">
@@ -103,10 +108,11 @@
 
   function changePassword() {
      var newpassword = document.getElementById("password").value;
+     var renewpass = document.getElementById("Repasswordd").value;
 
 
-    if(newpassword == ""){
-      alert("Box is Empty")
+    if(newpassword == "" || newpassword != renewpass){
+      alert("Box is Empty or Passwords not Equal")
     }else{
       var userResponse = {
         password: newpassword
