@@ -23,6 +23,8 @@ public class ProductEntity  {
     private String product_price;
     @Column
     private double product_star;
+    @Column
+    private int totalproduct_star;
 
     @Column
     private int product_starcount;
@@ -37,7 +39,7 @@ public class ProductEntity  {
         this.product_price = product_price;
         this.product_image =product_image;
         this.product_starcount = 0;
-
+        this.totalproduct_star = 0;
 
     }
 

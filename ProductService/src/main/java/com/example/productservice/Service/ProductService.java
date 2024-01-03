@@ -43,20 +43,26 @@ public class ProductService {
             if(star > 5 || star < 0 ){
                 return ResponseEntity.badRequest().build();
             } else {
-                double getstar = 0.0 ;
+
 
                 if(productRepository.getStarCountbyid(id) == 0){
-                    getstar = productRepository.getStarbyid(id);
+                    productRepository.updateCountbyid(id);
+                    productRepository.updateStarbyid(id,star);
+                    productRepository.updateTotalStarbyid(id,star);
+                    return  ResponseEntity.ok("");
                 }else{
-                    getstar = productRepository.getStarbyid(id)+star;
+                    int gettotalstar = productRepository.getTotalStarbyid(id)+star;
+                    productRepository.updateCountbyid(id);
+                    int getcount = productRepository.getStarCountbyid(id);
+                    double newstar = gettotalstar/getcount;
+                    productRepository.updateTotalStarbyid(id,gettotalstar);
+                    productRepository.updateStarbyid(id,newstar);
+                    return ResponseEntity.ok("");
                 }
 
-              int getcount = productRepository.getStarCountbyid(id);
-              double newstar = getstar/getcount;
-               productRepository.updateCountbyid(id);
-               productRepository.updateStarbyid(id,newstar);
 
-               return ResponseEntity.ok("");
+
+
 
             }
 

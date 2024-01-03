@@ -19,7 +19,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity,String> {
     double getStarbyid(@Param("id") int id);
     @Query("SELECT product.product_starcount FROM ProductEntity product WHERE product.id=:id ")
     int getStarCountbyid(@Param("id") int id);
-
+    @Query("SELECT product.totalproduct_star FROM ProductEntity product WHERE product.id=:id ")
+    int  getTotalStarbyid(@Param("id") int id);
     @Transactional
     @Modifying
     @Query("UPDATE ProductEntity product SET  product.product_starcount = product.product_starcount+1 WHERE product.id=:id")
@@ -29,4 +30,9 @@ public interface ProductRepository extends JpaRepository<ProductEntity,String> {
     @Modifying
     @Query("UPDATE ProductEntity product SET product.product_star = :newstar WHERE product.id = :id")
     void updateStarbyid(@Param("id") int id, @Param("newstar") double newstar);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE ProductEntity product SET product.totalproduct_star = :totalstar WHERE product.id = :id")
+    void updateTotalStarbyid(@Param("id") int id, @Param("totalstar") int totalstar);
 }

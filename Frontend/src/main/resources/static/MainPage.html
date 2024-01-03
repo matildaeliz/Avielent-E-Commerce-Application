@@ -60,6 +60,7 @@
                                 if (star.readyState == 4) {
                                     if (star.status == 200) {
                                         alert("Successful");
+
                                     } else {
                                         alert("Error: " + star.status + " - " + star.statusText);
                                     }
@@ -79,6 +80,9 @@
         };
 
         xhr.send();
+
+
+
     }
 
 

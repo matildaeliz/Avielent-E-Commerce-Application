@@ -3,6 +3,7 @@ package com.example.userservice.Controller;
 import com.example.userservice.Response.UserResponse;
 import com.example.userservice.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +35,20 @@ public class UserServiceController {
     }
     @PostMapping("/updateBalance")
     public ResponseEntity updateBalance(@RequestBody UserResponse userResponse){
-        return  userService.updateBalance(userResponse.getBalance());
+               if(userResponse.getBalance() <=0){
+                   return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+               }else {
+                   return  userService.updateBalance(userResponse.getBalance());
+               }
+
     }
+
+
+    @GetMapping("/newupBalance")
+    public ResponseEntity updateBalance(@RequestParam("price") int price){
+
+            return  userService.updateBalance(price);
+        }
     @GetMapping("/getBalance")
     public String getBalance(){
                return String.valueOf(userService.getBalance());
