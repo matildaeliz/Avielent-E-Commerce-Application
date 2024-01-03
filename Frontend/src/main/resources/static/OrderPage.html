@@ -99,7 +99,22 @@
                                     if (order.readyState === 4) {
                                         if (order.status === 200) {
                                             alert("Successful");
+                                            var balan = new XMLHttpRequest();
+                                            var newbalan = -parseInt(pPrice);
+                                            balan.open('GET', "http://localhost:9000/user/newBalance?price="+newbalan ,true);
 
+                                            balan.onreadystatechange = function () {
+                                                if (balan.readyState === 4) {
+                                                    if (balan.status === 200) {
+                                                       
+
+
+                                                    }else{
+                                                        alert("You dont have enough money")
+                                                    }
+                                                }
+                                            };
+                                           balan.send();
 
                                         }else{
                                             alert("You dont have enough money")

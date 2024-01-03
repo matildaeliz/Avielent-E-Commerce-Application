@@ -44,7 +44,7 @@ public class UserServiceController {
     }
 
 
-    @GetMapping("/newupBalance")
+    @GetMapping("/newBalance")
     public ResponseEntity updateBalance(@RequestParam("price") int price){
 
             return  userService.updateBalance(price);
