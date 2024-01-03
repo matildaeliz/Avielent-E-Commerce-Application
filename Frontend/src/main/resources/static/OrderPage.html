@@ -14,12 +14,7 @@
     <td id="review">Product Review</td>
 </header>
 <section>
-    <form name="address" action="#" id="ratingForm">
-        <table>
-            <input type="number" name="rating" id="ratingInput" min="1" max="5" placeholder="Rate the product!">
-        </table>
-        <button type="submit">Submit</button>
-    </form>
+
 <div id="orderdiv">
     <label id="productnamelabel"> Product Name:</label>
     <label id="productnametext"> sdssd</label>
@@ -28,6 +23,7 @@
     <label id="productpricelabel"> Product Price:</label>
     <label id="productpricetext">dsdsd </label>
     <button type="submit" id="submits">Submit</button>
+    <button type="button" id="backbutton">Back</button>
 </div>
 
 
@@ -102,8 +98,8 @@
                                 order.onreadystatechange = function () {
                                     if (order.readyState === 4) {
                                         if (order.status === 200) {
-
                                             alert("Successful");
+
 
                                         }else{
                                             alert("You dont have enough money")
@@ -127,6 +123,11 @@
     document.getElementById("submits").addEventListener("click",addOrder)
 </script>
 
-
+<script>
+    function back(){
+        window.location.href="MainPage.html"
+    }
+    document.getElementById("backbutton").addEventListener("click",back)
+</script>
 </html>
 

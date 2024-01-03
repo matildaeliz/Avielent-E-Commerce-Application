@@ -89,6 +89,7 @@
                 xhr.onload = function () {
                     if (xhr.status === 200) {
                         console.log('Succesfull:', xhr.responseText);
+                        alert("Succesfull")
                     } else {
                         console.error('Error:', xhr.statusText);
                     }
